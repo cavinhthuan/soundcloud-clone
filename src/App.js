@@ -11,7 +11,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-const Home = lazy(() => import("./pages/Home"));
+const Home = lazy(() => import("./pages/Discover"));
 const About = lazy(() => import("./pages/About"));
 const Feed = lazy(() => import("./pages/Feed"));
 const Library = lazy(() => import("./pages/Libary"));
