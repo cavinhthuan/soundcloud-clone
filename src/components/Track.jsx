@@ -7,7 +7,7 @@ function Track({ name, thumbnail, artist }) {
   const optionRef = useRef();
   return (
     <div
-      className="relative w-[180px] flex flex-col my-4 mx-2 flex-[1_0_180px]"
+      className="relative w-[170px] flex flex-col my-4 mx-2 flex-[1_0_170px]"
       onMouseEnter={() => {
         setHover(true);
       }}
@@ -15,7 +15,7 @@ function Track({ name, thumbnail, artist }) {
         setHover(false);
       }}
     >
-      <img src={thumbnail} className="relative w-[180px] h-[180px]" alt="" />
+      <img src={thumbnail} className="relative w-[170px] h-[170px]" alt="" />
       <div className="w-full truncate ...">
         <span className={`text-ellipsis`}>{name}</span>
       </div>

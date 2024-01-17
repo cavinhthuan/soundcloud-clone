@@ -17,7 +17,7 @@ function TrackList({ title, trackList }) {
       <span className="text-2xl font-medium">{title}</span>
       <ul className="relative list-none flex items-center max-w-[90%] overflow-auto no-scrollbar ">
         <Swiper
-          spaceBetween={15}
+          spaceBetween={100}
           loop
           slidesPerView={4.5}
           navigation={{
