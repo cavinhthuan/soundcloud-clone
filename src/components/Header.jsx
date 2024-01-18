@@ -5,7 +5,7 @@ import styled from "styled-components";
 import SearchBar from "./SearchBar";
 
 const HeaderStyled = styled.header`
-  & a:hover:not(.notstyled){
+  & a:hover:not(.notstyled) {
     color: white;
     opacity: 1;
   }
@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <HeaderStyled
       role="banner"
-      className="fixed text-[rgb(153,_153,_153)] select-none cursor-default outline-[rgb(153,_153,_153)_none_0px] block bg-[rgb(51,_51,_51)] font-[Inter,_sans-serif] font-thin text-[14px] leading-[21px] w-full h-[46px] [transform:matrix(1,_0,_0,_1,_0,_0)] [transition:height_0.2s_ease-in-out_0s]"
+      className="fixed text-[rgb(153,_153,_153)] z-10 select-none cursor-default outline-[rgb(153,_153,_153)_none_0px] block bg-[rgb(51,_51,_51)] font-[Inter,_sans-serif] font-thin text-[14px] leading-[21px] w-full h-[46px] [transform:matrix(1,_0,_0,_1,_0,_0)] [transition:height_0.2s_ease-in-out_0s]"
     >
       <div className="w-[1240px] p-0 mx-[auto] my-0 flex">
         <div className>

@@ -1,5 +1,16 @@
-@import-normalize; 
+@import-normalize;
 @import "normalize.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ANIMATION */
+@keyframes fromTop {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 0%;
+    }
+}

@@ -13,11 +13,11 @@ function TrackList({ title, trackList }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
-    <div className="flex flex-col mx-8 my-4 w-full">
-      <span className="text-2xl font-medium">{title}</span>
-      <ul className="relative list-none flex items-center max-w-[90%] overflow-auto no-scrollbar ">
+    <div className="flex flex-col mx-8 w-full">
+      <span className="text-2xl font-bold">{title}</span>
+      <ul className="relative list-none flex items-center max-w-[95%] overflow-auto no-scrollbar ">
         <Swiper
-          spaceBetween={100}
+          spaceBetween={10}
           loop
           slidesPerView={4.5}
           navigation={{
@@ -45,13 +45,13 @@ function TrackList({ title, trackList }) {
               className="transition-[0.25s] hover:text-primary hover:border-primary cursor-pointer absolute top-[50%] translate-y-[-50%] left-0 p-2 z-10 bg-white border border-gray-400 flex items-center justify-center rounded-sm"
               ref={prevRef}
             >
-              <CaretLeft size={16} />
+              <CaretLeft size={16} color="black" />
             </div>
             <div
               className="transition-[0.25s] hover:text-primary hover:border-primary cursor-pointer absolute top-[50%] translate-y-[-50%] right-0 p-2 z-10 bg-white border border-gray-400 flex items-center justify-center rounded-sm"
               ref={nextRef}
             >
-              <CaretRight size={16} />
+              <CaretRight size={16} color="black" />
             </div>
           </div>
         </Swiper>
