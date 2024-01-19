@@ -65,10 +65,6 @@ const userOptions = [
 
 
 export default function UserOptions(props) {
-  useEffect(() => {
-    const div = document.querySelector("#root > div > header > div > div.block.visible > div:nth-child(4)")
-    console.log(window.findOverflowingChildrenRecursive(div));
-  }, [])
   return (
     <Dropdown
       trigger={{
