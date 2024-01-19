@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         primary: "#ff3300",
       },
+      animation: {
+        fromTop: "fromTop .25s linear",
+      },
     },
   },
   plugins: [],

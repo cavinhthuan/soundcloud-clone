@@ -44,7 +44,7 @@ function Discover() {
     },
   ];
   return (
-    <Layout>
+    <Layout title="Discover">
       {ad && (
         <div className="bg-[#fbe2e2] relative flex justify-center items-center mx-2 h-[64px]">
           <WarningCircle size={26} color="#ED4C67" className="mr-2" />

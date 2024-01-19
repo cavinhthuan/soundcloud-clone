@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import ListNavLink from "../ListNavLink";
 import styled from "styled-components";
 import SearchBar from "../SearchBar";
-import Dropdown from "../Dropdown";
+// import Dropdown from "../Dropdown";
 import { User } from "@phosphor-icons/react";
 import UserOptions from "./components/UserOptions";
 import Notifications from "./components/Notifications";
@@ -88,7 +88,7 @@ export default function Header() {
           </div>
           <ul className="float-left [list-style:outside_none_none] m-0 p-0">
             <li className="float-left relative">
-              <SettingAndMore/>
+              <SettingAndMore />
             </li>
           </ul>
         </div>

@@ -1,11 +1,11 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React from "react";
 
-function Search() {
+function SearchHome() {
   return (
     <div className="flex items-center my-8 justify-center">
       {/* SEARCH */}
-      <div className="bg-[#f2f2f2] flex p-1 text-[16px] items-center justify-between">
+      <div className="bg-[#f2f2f2] flex py-2 px-4 text-[16px] items-center justify-between">
         <input
           type="text"
           placeholder="Search for artists, tracks, bands, podcasts"
@@ -22,4 +22,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchHome;
