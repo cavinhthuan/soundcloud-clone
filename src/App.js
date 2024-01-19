@@ -11,7 +11,8 @@ import {
   Navigate,
 } from "react-router-dom";
 
-const Home = lazy(() => import("./pages/Discover"));
+const Home = lazy(() => import("./pages/Home"));
+const Discover = lazy(() => import("./pages/Discover"));
 const About = lazy(() => import("./pages/About"));
 const Feed = lazy(() => import("./pages/Feed"));
 const Library = lazy(() => import("./pages/Libary"));
@@ -29,6 +30,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/discover" element={<Discover />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/search/:searchKey" element={<ResultSearch />} />
             <Route path="/your" element={<Library />}>
