@@ -760,7 +760,7 @@ export default function Player(props) {
                       </a>
                     </div>
                   </div>
-                  <div
+                  {/* <div
                     className="playbackSoundBadge__actions"
                     style={{ display: "flex", marginLeft: "7px" }}>
                     <button
@@ -865,7 +865,7 @@ export default function Player(props) {
                         }}
                       />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

@@ -31,40 +31,40 @@ import artist1 from "assets/artists/artist1.jpg";
 import artist2 from "assets/artists/artist2.jpg";
 import artist3 from "assets/artists/artist3.jpg";
 import Songs from "components/Songs";
+const recentList = [
+  {
+    thumb: thumb1,
+    name: "USUK",
+    poster: "Tuyen Danh",
+  },
+  {
+    thumb: thumb2,
+    name: "Playlist chu",
+    poster: "Ajn",
+  },
+  {
+    thumb: thumb3,
+    name: "Mosc",
+    poster: "Aca",
+  },
+  {
+    thumb: thumb4,
+    name: "Peace",
+    poster: "TD",
+  },
+  {
+    thumb: thumb5,
+    name: "Ronboongz",
+    poster: "Leo",
+  },
+  {
+    thumb: thumb6,
+    name: "piano",
+    poster: "Gund",
+  },
+];
 function Discover() {
   const [ad, setAd] = useState(true);
-  const recentList = [
-    {
-      thumb: thumb1,
-      name: "USUK",
-      poster: "Tuyen Danh",
-    },
-    {
-      thumb: thumb2,
-      name: "Playlist chu",
-      poster: "Ajn",
-    },
-    {
-      thumb: thumb3,
-      name: "Mosc",
-      poster: "Aca",
-    },
-    {
-      thumb: thumb4,
-      name: "Peace",
-      poster: "TD",
-    },
-    {
-      thumb: thumb5,
-      name: "Ronboongz",
-      poster: "Leo",
-    },
-    {
-      thumb: thumb6,
-      name: "piano",
-      poster: "Gund",
-    },
-  ];
   const relatedList = [
     {
       thumb: thumb7,
@@ -224,30 +224,33 @@ function Discover() {
           />
         </div>
       )} */}
-      <div className="flex items-start">
+      <div className="relative [font:12px/1.4_Inter,sans-serif] text-[#333] ">
         {/* LEFT */}
-        <div className="w-[70%] my-10">
-          <TrackList title="Recently Played" trackList={recentList} />
-          <TrackList title="More of what you like" trackList={relatedList} />
+        <div className="[font:12px/1.4_Inter,sans-serif] text-[#333] border-r border-[#f2f2f2] pt-[30px] pr-[30px] pl-[0] ml-[0] mr-[330px] my-[0] w-fit">
+          <div className="relative w-full divide-y divide-gray-100 pb-8">
+            <TrackList title="Recently Played" trackList={recentList} />
+            <TrackList title="More of what you like" trackList={relatedList} />
+          </div>
         </div>
         {/* RIGHT */}
-        <div className="w-[25%] mx-5 my-10">
+        <div className="[font:12px/1.4_Inter,sans-serif] text-[#333] absolute bottom-0 right-0 top-[30px] w-[300px]">
           <div className="w-[90%]">
             <div className="flex items-center justify-between text-gray-400">
               <div className="flex items-center">
                 <Users size={20} />
-                <span className="text-[15px] ml-1">
+                <span className="[font:12px/1.4_Inter,sans-serif] text-[14px] font-[Inter,sans-serif] font-thin text-[#999] tabular-nums leading-[24px]">
                   Artists you should follow
                 </span>
               </div>
               <div className="cursor-pointer flex items-center hover:text-black transition-[0.25s]">
                 <ArrowClockwise size={15} className="" />{" "}
-                <span className="text-[15px] ml-1">Refresh list</span>
+                <span className="text-[14px] ml-1">Refresh list</span>
               </div>
             </div>
             <div>
-              {artistList.map((ar) => (
+              {artistList.map((ar, i) => (
                 <Artists
+                  key={i}
                   name={ar.name}
                   avatar={ar.avatar}
                   followers={ar.follower}
@@ -267,8 +270,9 @@ function Discover() {
               </span>
             </div>
             <div className="flex flex-col">
-              {likedList.map((lik) => (
+              {likedList.map((lik, i) => (
                 <Songs
+                  key={i}
                   artist={lik.artist}
                   avatar={lik.avatar}
                   name={lik.name}
@@ -288,8 +292,9 @@ function Discover() {
               </span>
             </div>
             <div className="flex flex-col">
-              {historyList.map((lik) => (
+              {historyList.map((lik, i) => (
                 <Songs
+                  key={i}
                   artist={lik.artist}
                   avatar={lik.avatar}
                   name={lik.name}
