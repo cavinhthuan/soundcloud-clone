@@ -1,9 +1,16 @@
 import React, { useMemo, useRef, useState } from "react";
-import { DotsThree, Heart, ListPlus, Play, Queue } from "@phosphor-icons/react";
+import {
+  DotsThree,
+  Heart,
+  ListPlus,
+  Play,
+  Queue,
+  UserPlus,
+} from "@phosphor-icons/react";
 import ContextMenu from "./ContextMenu";
 import Dropdown from "./Dropdown";
 
-function Track({ name, thumbnail, artist }) {
+function Track({ name, thumbnail, artist, isHome }) {
   const [hover, setHover] = useState(false);
   const [option, setOption] = useState(false);
   const optionRef = useRef();
@@ -36,6 +43,16 @@ function Track({ name, thumbnail, artist }) {
                 {" "}
                 <Heart size={20} color="white" className="cursor-pointer" />
               </abbr>
+              {isHome && (
+                <abbr title={`Follow ${artist}`}>
+                  {" "}
+                  <UserPlus
+                    size={20}
+                    color="white"
+                    className="cursor-pointer mx-1"
+                  />
+                </abbr>
+              )}
               <Dropdown
                 trigger={{
                   target: (
@@ -79,7 +96,6 @@ function Track({ name, thumbnail, artist }) {
           </li>
         </ul>
       </div>
-
     </div>
   );
 }
