@@ -19,7 +19,7 @@ const HeaderStyled = styled.header`
 
 export default function Header() {
   const listNavLink = [
-    { to: "/", text: "Home" },
+    { to: "/discover", text: "Home" },
     { to: "/feed", text: "Feed" },
     { to: "/your/library", text: "Library" },
   ];
