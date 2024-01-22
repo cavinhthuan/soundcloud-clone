@@ -17,6 +17,7 @@ const About = lazy(() => import("./pages/About"));
 const Feed = lazy(() => import("./pages/Feed"));
 const Library = lazy(() => import("./pages/Libary"));
 const ResultSearch = lazy(() => import("./pages/ResultSearch"));
+const Playlist = lazy(() => import("./pages/Playlist"));
 
 export const AppContext = React.createContext();
 
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/discover" element={<Discover />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/search/:searchKey" element={<ResultSearch />} />
+            <Route path="/playlist" element={<Playlist />} />
             <Route path="/your" element={<Library />}>
               <Route path="/your/library" element={<Library />} />
             </Route>
