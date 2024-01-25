@@ -10,12 +10,14 @@ import "swiper/css/scrollbar";
 import { Navigation, Virtual } from "swiper/modules";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import Track from "./Track";
+import TrackOptions from "./TrackOptions";
 
 register();
 
 function TrackList({ title, trackList }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const optionsRef = useRef(null);
   const [swiperRender, setSwiperRender] = useState(<></>);
   useEffect(() => {
     setSwiperRender(
@@ -36,6 +38,7 @@ function TrackList({ title, trackList }) {
               name={track.name}
               thumbnail={track.thumb}
               artist={track.poster}
+              optionsRef={optionsRef}
             />
           </SwiperSlide>
         ))}
@@ -45,6 +48,7 @@ function TrackList({ title, trackList }) {
   return (
     <div className="relative">
       <span className="text-2xl font-bold">{title}</span>
+      <TrackOptions ref={optionsRef} />
       <div className="flex w-full items-center justify-between z-10">
         <div
           className="transition-[0.25s] hover:text-primary hover:border-primary cursor-pointer absolute top-[50%] translate-y-[-50%] left-0 p-2 z-10 bg-white border border-gray-400 flex items-center justify-center rounded-sm"

@@ -16,7 +16,8 @@ import thumb3 from "assets/thumbnails/thumb3.jpg";
 import thumb4 from "assets/thumbnails/thumb4.jpg";
 import thumb5 from "assets/thumbnails/thumb5.jpg";
 import thumb6 from "assets/thumbnails/thumb6.jpg";
-import Track from "components/Track";
+import Track from "components/Track/Track";
+import TrackOptions from "components/Track/TrackOptions";
 const Home = () => {
   const songs = [
     {
@@ -125,6 +126,7 @@ const Home = () => {
             name={song.name}
             thumbnail={song.thumb}
             isHome={true}
+            children = {({optionsRef})=> <TrackOptions ref={optionsRef}/>}
           />
         ))}
       </ul>

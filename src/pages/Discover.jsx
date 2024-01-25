@@ -16,7 +16,7 @@ import thumb3 from "assets/thumbnails/thumb3.jpg";
 import thumb4 from "assets/thumbnails/thumb4.jpg";
 import thumb5 from "assets/thumbnails/thumb5.jpg";
 import thumb6 from "assets/thumbnails/thumb6.jpg";
-import TrackList from "components/TrackList";
+import TrackList from "components/Track/TrackList";
 import Layout from "static/Layout";
 
 import thumb7 from "assets/thumbnails/thumb7.jpg";
@@ -31,6 +31,7 @@ import artist1 from "assets/artists/artist1.jpg";
 import artist2 from "assets/artists/artist2.jpg";
 import artist3 from "assets/artists/artist3.jpg";
 import Songs from "components/Songs";
+import Slider from "components/Slider";
 const recentList = [
   {
     thumb: thumb1,
@@ -226,7 +227,7 @@ function Discover() {
       )} */}
       <div className="relative [font:12px/1.4_Inter,sans-serif] text-[#333] ">
         {/* LEFT */}
-        <div className="[font:12px/1.4_Inter,sans-serif] text-[#333] border-r border-[#f2f2f2] pt-[30px] pr-[30px] pl-[0] ml-[0] mr-[330px] my-[0] w-fit">
+        <div className="[font:12px/1.4_Inter,sans-serif] text-[#333] border-r border-[#f2f2f2] pt-[30px] pr-[30px] pl-[0] ml-[0] mr-[330px] my-[0]">
           <div className="relative w-full divide-y divide-gray-100 pb-8">
             <TrackList title="Recently Played" trackList={recentList} />
             <TrackList title="More of what you like" trackList={relatedList} />

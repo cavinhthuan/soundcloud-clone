@@ -1,9 +1,10 @@
-import { Fragment, useEffect, useMemo } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 const defaultProps = {
   className: "relative inline-block text-left z-50 ",
 };
 export default function Dropdown(props) {
+  // const [open, setOpen] = useState(false);
   const newTriggerProps = useMemo(() => {
     if (props.trigger?.props) {
       return { ...defaultProps, ...props.trigger.props };
@@ -11,16 +12,18 @@ export default function Dropdown(props) {
     return defaultProps;
   }, [props]);
 
-  useEffect(() => {
-    toggleRef(false);
-  }, []);
-
-  const toggleRef = (open) => {
-    if (props.Items?.ref?.current) {
-      props.Items.ref.current.style.display = open ? "inline-block" : "none";
+  const openRef = (open) => {
+    if (props.Items?.ref) {
+      if (props.Items?.ref.current) {
+        if(open) props.handleOpen();
+        props.Items.ref.current.style.display = open ? "inline-block" : "none";
+      }
     }
-    return null;
   };
+
+  useEffect(() => {
+    openRef(false);
+  }, []);
 
   return (
     <Menu as="div" {...newTriggerProps}>
@@ -37,7 +40,7 @@ export default function Dropdown(props) {
             leaveTo="transform opacity-0 scale-95"
           >
             <Menu.Items {...props.Items?.props}>
-              {toggleRef(open) ?? props.children}
+              {props.children ?? openRef(open)}
             </Menu.Items>
           </Transition>
         </>
