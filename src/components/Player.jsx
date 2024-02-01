@@ -1,6 +1,12 @@
-import React from "react";
+import { AppContext } from "App";
+import React, { useContext, useEffect } from "react";
 
 export default function Player(props) {
+  const appCtx = useContext(AppContext)
+  useEffect(() => {
+    console.log(appCtx);
+    appCtx.media.addEventListener("play", () => { console.log("play") });
+  }, [])
   return (
     <>
       <div

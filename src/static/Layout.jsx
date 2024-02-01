@@ -12,7 +12,7 @@ export default function Layout({ children: pageContent, ...props }) {
       </Helmet>
       <Header></Header>
       <Container>{pageContent}</Container>
-      <Player></Player>
+      <Player/>
     </>
   );
 }

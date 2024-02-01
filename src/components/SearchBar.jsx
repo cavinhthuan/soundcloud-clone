@@ -4,6 +4,7 @@ import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../App";
 import ResultSearch from "../pages/ResultSearch";
+import { fetchSearchData } from "utils/fetchers";
 
 export default function SearchBar(props) {
   const { searchKey } = useParams();
@@ -13,64 +14,33 @@ export default function SearchBar(props) {
   const [IsFocused, setIsFocused] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState();
   const context = useContext(AppContext);
-  const socket = context.socket;
+  // const socket = context.socket;
   const showResult = useMemo(
     () => sequence.trim() && IsFocused,
     [sequence, IsFocused],
   );
-  useEffect(() => {
-    socket.connect();
-    socket.on("connect", () => (showResult ? fetchData() : null));
-    socket.on("disconnect", () => console.log("disconnect"));
-    return () => {
-      socket.off("connect");
-      socket.off("disconnect");
-    };
-  }, []);
+
+  // useEffect(() => {
+  //   socket.connect();
+  //   socket.on("connect", () => (showResult ? fetchData() : null));
+  //   socket.on("disconnect", () => console.log("disconnect"));
+  //   return () => {
+  //     socket.off("connect");
+  //     socket.off("disconnect");
+  //   };
+  // }, []);
 
   const fetchData = async (searchKey) => {
-    try {
-      if (!socket.connected)
-        return setSearchResult([{ name: "You are offline" }]);
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      var query = `
-        query search($searchKey: String) {
-          search(searchKey: $searchKey) {
-            name
-          }
-        }
-      `;
-
-      var requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: JSON.stringify({
-          query,
-          variables: {
-            searchKey
-          },
-        }),
-        redirect: "follow",
-      };
-
-      const response = await fetch("/graphql", requestOptions);
-      const result = await response.json();
-
-      if (result.errors) {
-        // Handle GraphQL errors here
-        console.error(result.errors);
-      } else {
-        setSearchResult(result.data.search.slice(0, 9));
-      }
-    } catch (error) {
-      console.error("Error during data fetching:", error);
-    }
+    var [trasks, albums, artists] = await fetchSearchData(searchKey);
+    const result = trasks.data.map((data) => data.title).concat(albums.data.map((data) => data.title).concat(artists.data.map((data) => data.name))).map((data) => ({ name: data }));
+    console.log(result);
+    setSearchResult(result);
   };
 
   useEffect(() => {
-    if (sequence.trim()) {
-      fetchData(sequence.trim());
+    const trimSequence = sequence.trim();
+    if (trimSequence) {
+      fetchData(trimSequence);
     }
   }, [sequence]);
 
@@ -116,7 +86,7 @@ export default function SearchBar(props) {
       >
         <input
           className="select-none visible m-0 w-full inline-block text-[14px] leading-[20px] rounded-[4px] font-[Inter,sans-serif] [transition:all_.3s_ease-in-out] box-border font-thin h-[28px] text-[#666] outline-[0] border-[0] px-[7px] py-[5px] bg-[#e5e5e5] focus:bg-[#fff]"
-          placeholder="Search"
+          placeholder="Search for artists, bands, tracks, podcasts"
           name="sequence"
           autoComplete="off"
           aria-label="Search"
